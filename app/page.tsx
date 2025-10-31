@@ -6,6 +6,7 @@ import { HowItWorks } from "@/components/how-it-works"
 import { Testimonials } from "@/components/testimonials"
 import { CTA } from "@/components/cta"
 import { Footer } from "@/components/footer"
+import Link from "next/link"
 
 export default function Home() {
   return (

@@ -1,17 +1,8 @@
-"use client"
-
-import { Card, CardContent, CardFooter, CardHeader } from "@/components/ui/card"
+import { Card, CardContent, CardHeader, CardFooter } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
-import { Star, Clock, BookOpen, ShoppingCart } from "lucide-react"
+import { Star, Clock, ShoppingCart } from "lucide-react"
 import Image from "next/image"
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselPrevious,
-  CarouselNext,
-} from "@/components/ui/carousel"
 
 const ebooks = [
   {
@@ -60,14 +51,14 @@ const ebooks = [
   },
 ]
 
-export function FeaturedEbooks() {
+export default function CataloguePage() {
   return (
-    <section id="catalogue" className="py-20">
+    <main className="min-h-screen py-20">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16 space-y-4 animate-fade-in-up">
-          <h2 className="text-3xl md:text-4xl font-bold text-balance">Les formations du moment</h2>
+          <h1 className="text-4xl md:text-5xl font-bold text-balance">Catalogue des ebooks</h1>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Nos ebooks les plus populaires, plébiscités par nos apprenants
+            Parcourez l'ensemble de nos ebooks professionnels et trouvez la formation qui vous correspond !
           </p>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
@@ -75,7 +66,7 @@ export function FeaturedEbooks() {
             <Card
               key={index}
               className="group overflow-hidden hover:shadow-2xl transition-all duration-300 animate-scale-in h-full flex flex-col justify-between"
-              style={{ animationDelay: `${index * 0.1}s` }}
+              style={{ animationDelay: `${index * 0.06}s` }}
             >
               <CardHeader className="p-0 relative">
                 {ebook.bestseller && (
@@ -94,9 +85,9 @@ export function FeaturedEbooks() {
                 <Badge variant="secondary" className="text-xs">
                   {ebook.category}
                 </Badge>
-                <h3 className="font-bold text-lg line-clamp-2 group-hover:text-primary transition-colors">
+                <h2 className="font-bold text-lg line-clamp-2 group-hover:text-primary transition-colors">
                   {ebook.title}
-                </h3>
+                </h2>
                 <p className="text-sm text-muted-foreground">Par {ebook.author}</p>
                 <div className="flex items-center gap-2">
                   <div className="flex items-center gap-1">
@@ -120,13 +111,7 @@ export function FeaturedEbooks() {
             </Card>
           ))}
         </div>
-        <div className="text-center mt-12">
-          <Button size="lg" variant="outline">
-            Voir tout le catalogue
-            <BookOpen className="ml-2 h-5 w-5" />
-          </Button>
-        </div>
       </div>
-    </section>
+    </main>
   )
 }
